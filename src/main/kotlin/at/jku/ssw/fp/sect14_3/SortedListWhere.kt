@@ -1,11 +1,16 @@
-package at.jku.ssw.fp.sect14_1
+package at.jku.ssw.fp.sect14_3
 
-class SortedList<E: Comparable<E>> : Iterable<E> {
-    companion object {
-        private val CAP = 16
+import java.io.Serializable
+
+class SortedListWhere<E> : Iterable<E>
+        where E : Comparable<E>,
+              E : Serializable {
+
+    constructor(vararg es: E) {
+        for (e in es) add(e)
     }
 
-    var elems : Array<E?> = arrayOfNulls<Comparable<E>>(CAP) as Array<E?>
+    var elems : Array<E?> = arrayOfNulls<Comparable<E>>(16) as Array<E?>
     var size: Int = 0
 
     fun add(elem: E) {
@@ -51,43 +56,4 @@ class SortedList<E: Comparable<E>> : Iterable<E> {
         System.arraycopy(elems, 0, newElems, 0, size)
         elems = newElems
     }
-}
-
-fun main() {
-    val stringList: SortedList<String> = SortedList()
-    stringList.add("B")
-    stringList.add("A")
-    stringList.add("C")
-    stringList.add("E")
-    stringList.add("D")
-    println(stringList)
-    println(stringList.get(0))
-    println(stringList.get(1))
-    println(stringList.get(2))
-    //println(list.get(5))  // throws exception
-    println()
-    for (e in stringList) {
-        println(e)
-    }
-
-    println()
-
-    val intList: SortedList<Int> = SortedList()
-    intList.add(3)
-    intList.add(2)
-    intList.add(5)
-    intList.add(1)
-    intList.add(4)
-    println(intList)
-    val i0: Int = intList.get(0)
-    println(i0)
-    println(intList.get(1))
-    println(intList.get(2))
-    //println(list.get(3))  // throws exception
-
-    println()
-    for (e in intList) {
-        println(e)
-    }
-
 }

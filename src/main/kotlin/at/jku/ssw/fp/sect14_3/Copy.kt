@@ -1,7 +1,7 @@
-package at.jku.ssw.fp.sect14_1
+package at.jku.ssw.fp.sect14_3
 
-import at.jku.ssw.fp.persons.Person
-import at.jku.ssw.fp.persons.Student
+import at.jku.ssw.fp.sect14_3.person.Person
+import at.jku.ssw.fp.sect14_3.person.Student
 
 fun covariantAssignmentNotValid() {
     val students: List<Student> = List<Student>()
@@ -22,6 +22,20 @@ fun <T> copy2(from: kotlin.collections.List<T>, to: List<in T>) {
         to.add(from.get(i))
     }
 }
+
+fun <F, T> copy3(from: List<F>, to: List<T>)
+   where F : T {
+    for (i in 0 .. from.size) {
+        to.add(from.get(i))
+    }
+}
+
+fun <T, F : T> copy4(from: List<F>, to: List<T>) {
+    for (i in 0 .. from.size) {
+        to.add(from.get(i))
+    }
+}
+
 
 fun main() {
     val students: List<Student> = List<Student>()
