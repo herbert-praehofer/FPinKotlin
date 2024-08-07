@@ -1,11 +1,11 @@
-package at.jku.ssw.fp.sect14_3.person;
+package at.jku.ssw.fp.person;
 
 /**
  * Class representing a person with name and age.
  *
  * @author Herbert Praehofer
  */
-public class Person implements Comparable<Person> {
+public class Person { //implements Comparable<Person> {
 
   /**
    * The name of the person
@@ -118,6 +118,8 @@ public class Person implements Comparable<Person> {
     return true;
   }
 
+
+
   /**
    * Compares this person and the given person first based on the name, then on the age.
    * <p>
@@ -128,12 +130,12 @@ public class Person implements Comparable<Person> {
    * +1 if other person is smaller,
    * 0 if they are equal
    */
-  @Override
-  public int compareTo(Person o) {
-    int c = name.compareTo(o.name);
-    if (c == 0) {
-      c = age < o.age ? -1 : age == o.age ? 0 : +1;
-    }
-    return c;
-  }
+//  @Override
+//  public int compareTo(Person o) {
+//    int c = name.compareTo(o.name);
+//    if (c == 0) {
+//      c = age < o.age ? -1 : age == o.age ? 0 : +1;
+//    }
+//    return c;
+//  }
 }

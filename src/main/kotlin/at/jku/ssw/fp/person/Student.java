@@ -1,4 +1,4 @@
-package at.jku.ssw.fp.sect14_3.person;
+package at.jku.ssw.fp.person;
 
 /**
  * Class for special person student.
