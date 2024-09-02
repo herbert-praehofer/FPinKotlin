@@ -5,7 +5,7 @@ value class Temperature(val degreesCelsius: Double) {
 
   fun toFahrenheit(): Double = degreesCelsius * 9 / 5 + 32
 
-  operator fun plus(other: Temperature): Temperature {
+  inline operator fun plus(other: Temperature): Temperature {
     return Temperature(this.degreesCelsius + other.degreesCelsius)
   }
 

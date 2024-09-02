@@ -32,7 +32,8 @@ fun main() {
   val i : Int = d.toInt()
   val ir : Int = d.roundToInt()
   val sign = i.sign
-  val d1 = d.inc()
-  val a1 = d1.absoluteValue
+  val i1 = i.inc()
+  val a1 = i1.absoluteValue
   println(a1.toString())
+
 }

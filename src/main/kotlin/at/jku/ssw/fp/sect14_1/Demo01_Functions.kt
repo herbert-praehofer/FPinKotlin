@@ -12,6 +12,13 @@ fun printWords(vararg words: String) {
   for (w in words) println(w)
 }
 
+fun printWords2(vararg words: String) {
+  for (i in words.indices) println(words[i])
+  for (w in words) println(w)
+}
+
+const val MAX = 1000;
+
 fun main() {
   val y1 = multiple(3.0, 2)
   println(y1)
@@ -26,5 +33,5 @@ fun main() {
   val u = println(y4)
   println(u)
 
-  printWords("Hallo", "Kotlin")
+  printWords2("Hallo", "Kotlin")
 }

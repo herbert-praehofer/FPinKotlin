@@ -4,10 +4,6 @@ import java.io.Serializable
 
 enum class Study { ComputerSience, Business, Law, Mathematics }
 
-interface Worker {
-  fun work() : Unit
-}
-
 interface WithName {
   object Test { val test = "hallo"}
   val firstName: String
@@ -99,6 +95,28 @@ open class Student2
   }
 }
 
+open class Student3(firstName: String, lastName: String, initial: Study)
+  : Person(firstName, lastName) {
+
+  var study : Study = initial
+    get() {
+      println("Getting study")
+      return field
+    }
+    internal set(value) {
+      if (value != study) {
+        println("Changing study from $study to $value")
+        field = value
+      }
+    }
+
+  override val profession: String = "Student"
+
+  override fun work() {
+    println("I am a $profession and I am studying $study")
+  }
+}
+
 fun main() {
   val stdt = Student("Harald", "Berger", Study.Law)
   stdt.work()
@@ -107,4 +125,10 @@ fun main() {
   for (stdt in Student2.students) {
     println(stdt)
   }
+
+  val stdt3 = Student3("Harald", "Berger", Study.ComputerSience)
+  println(stdt3.study)
+  stdt3.study = Study.Law
+  println(stdt3.study)
+
 }

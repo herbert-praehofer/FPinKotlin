@@ -15,7 +15,7 @@ fun ggt(a: Int, b: Int) : Int {
 
 fun main() {
   val n = 10
-  for (i in 1..n) {
+  for (i in 1..n step 2) {
     println(i)
   }
 
